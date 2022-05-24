@@ -20,29 +20,16 @@ import PhonelinkSetupIcon from "@mui/icons-material/PhonelinkSetup";
 
 const categories = [
   {
-    id: "Build",
+    id: "",
     children: [
       {
-        id: "Authentication",
+        id: "The Dream Wall",
         icon: <PeopleIcon />,
         active: true,
       },
-      { id: "Database", icon: <DnsRoundedIcon /> },
-      { id: "Storage", icon: <PermMediaOutlinedIcon /> },
-      { id: "Hosting", icon: <PublicIcon /> },
-      { id: "Functions", icon: <SettingsEthernetIcon /> },
-      {
-        id: "Machine learning",
-        icon: <SettingsInputComponentIcon />,
-      },
-    ],
-  },
-  {
-    id: "Quality",
-    children: [
-      { id: "Analytics", icon: <SettingsIcon /> },
-      { id: "Performance", icon: <TimerIcon /> },
-      { id: "Test Lab", icon: <PhonelinkSetupIcon /> },
+      { id: "Your Dreams", icon: <DnsRoundedIcon /> },
+      { id: "Dream Library", icon: <PermMediaOutlinedIcon /> },
+      { id: "Your Info", icon: <PublicIcon /> },
     ],
   },
 ];
@@ -69,23 +56,25 @@ export default function Navigator(props) {
     <Drawer variant="permanent" {...other}>
       <List disablePadding>
         <ListItem
-          sx={{ ...item, ...itemCategory, fontSize: 22, color: "#fff" }}
+          sx={{
+            ...item,
+            ...itemCategory,
+            fontSize: 22,
+            color: "#fff",
+          }}
         >
-          Paperbase
+          Dream.
         </ListItem>
         <ListItem sx={{ ...item, ...itemCategory }}>
           <ListItemIcon>
             <HomeIcon />
           </ListItemIcon>
-          <ListItemText>Project Overview</ListItemText>
+          <ListItemText>New dream entry</ListItemText>
         </ListItem>
         {categories.map(({ id, children }) => (
           <Box key={id} sx={{ bgcolor: "#101F33" }}>
-            <ListItem sx={{ py: 2, px: 3 }}>
-              <ListItemText sx={{ color: "#fff" }}>{id}</ListItemText>
-            </ListItem>
             {children.map(({ id: childId, icon, active }) => (
-              <ListItem disablePadding key={childId}>
+              <ListItem disablePadding key={childId} sx={{ my: 3 }}>
                 <ListItemButton selected={active} sx={item}>
                   <ListItemIcon>{icon}</ListItemIcon>
                   <ListItemText>{childId}</ListItemText>
