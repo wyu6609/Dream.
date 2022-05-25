@@ -166,7 +166,7 @@ theme = {
 
 const drawerWidth = 256;
 
-export default function Paperbase() {
+export default function Paperbase({ handleLogoutClick }) {
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const isSmUp = useMediaQuery(theme.breakpoints.up("sm"));
 
@@ -197,7 +197,10 @@ export default function Paperbase() {
           />
         </Box>
         <Box sx={{ flex: 1, display: "flex", flexDirection: "column" }}>
-          <Header onDrawerToggle={handleDrawerToggle} />
+          <Header
+            onDrawerToggle={handleDrawerToggle}
+            handleLogoutClick={handleLogoutClick}
+          />
           <Box
             component="main"
             sx={{ flex: 1, py: 6, px: 4, bgcolor: "#eaeff1" }}

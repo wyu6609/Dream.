@@ -29,10 +29,21 @@ function App() {
       </div>
     );
 
+  // signout function
+  const handleLogoutClick = () => {
+    fetch("/logout", { method: "DELETE" }).then((r) => {
+      if (r.ok) {
+        setUser(null);
+
+        // window.location.reload(false);
+      }
+    });
+  };
+
   // show dashboard if logged in
   return (
     <div>
-      <Paperbase />
+      <Paperbase handleLogoutClick={handleLogoutClick} />
     </div>
   );
 }
