@@ -12,7 +12,9 @@ class User < ApplicationRecord
   /x
 
   validates :password,
-            format: PASSWORD_REQUIREMENTS,
-            message:
-              'password must contains at least 8 characters, one number, a lowercase and uppercase letter and one symbol'
+            format: {
+              with: PASSWORD_REQUIREMENTS,
+              message:
+                'passwords must be at least 8 characters long, with one number, a lower and uppercase letter with at least one symbol',
+            }
 end
