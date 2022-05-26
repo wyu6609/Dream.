@@ -21,7 +21,7 @@ function Header(props) {
     <React.Fragment>
       <AppBar color="primary" position="sticky" elevation={10}>
         <Toolbar>
-          <Grid container spacing={1} alignItems="center">
+          <Grid container spacing={1} sx={{ display: "flex" }}>
             <Grid sx={{ display: { sm: "none", xs: "block" } }} item>
               <IconButton
                 color="inherit"
@@ -32,8 +32,15 @@ function Header(props) {
                 <MenuIcon />
               </IconButton>
             </Grid>
-            <Grid component="div">
-              <IconButton color="inherit" onClick={props.handleLogoutClick}>
+            <Grid sx={{ mt: 1.5 }} item xs>
+              hello user
+            </Grid>
+            <Grid item>
+              <IconButton
+                edge="end"
+                color="inherit"
+                onClick={props.handleLogoutClick}
+              >
                 <LogoutOutlinedIcon />
               </IconButton>
             </Grid>
