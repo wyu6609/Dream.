@@ -12,6 +12,8 @@ Under Development
 
 ## Stack
 
--ReactJS
--Ruby on Rails
--Material UI
+<li>
+<ul>ReactJS</ul>
+<ul>Ruby on Rails</ul>
+<ul>Material UI</ul>
+</li>
