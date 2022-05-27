@@ -7,6 +7,7 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import Link from "@mui/material/Link";
 import Paper from "@mui/material/Paper";
+import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
@@ -83,6 +84,15 @@ export default function Login({ onLogin, fetchCartLength, fetchBots }) {
                 />
               </>
             )}
+            <Button
+              onClick={() => {
+                setShowLogin(!showLogin);
+              }}
+            >
+              {showLogin
+                ? "Don't have an account? Sign up here"
+                : "Already have an account? Sign in here"}
+            </Button>
           </Box>
         </Grid>
       </Grid>
