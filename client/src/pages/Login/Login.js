@@ -15,10 +15,11 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useState } from "react";
 import SigninForm from "./SigninForm";
 import SignupForm from "./SignupForm";
+import "./Login.css";
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#6320EE",
+      main: "#6320ee",
       contrastText: "white",
     },
   },
@@ -32,23 +33,25 @@ export default function Login({ onLogin, fetchCartLength, fetchBots }) {
     <ThemeProvider theme={theme}>
       <Grid container component="main" sx={{ height: "100vh" }}>
         <CssBaseline />
-        <Grid
-          item
-          xs={false}
-          sm={4}
-          md={7}
-          sx={{
-            backgroundImage:
-              "url(https://img.itch.zone/aW1hZ2UvOTkyODY3LzU2NDkwMTAucG5n/original/3lXVAy.png)",
-            backgroundRepeat: "no-repeat",
-            backgroundColor: (t) =>
-              t.palette.mode === "light"
-                ? t.palette.grey[50]
-                : t.palette.grey[900],
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        />
+        <Grid item xs={false} sm={4} md={7}>
+          <div className="context">
+            <h1>Dream.</h1>
+          </div>
+          <div className="area">
+            <ul className="circles">
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+            </ul>
+          </div>
+        </Grid>
 
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
           <Box
@@ -60,7 +63,9 @@ export default function Login({ onLogin, fetchCartLength, fetchBots }) {
               alignItems: "center",
             }}
           >
-            <h1 className="login-title">Dream.</h1>
+            <Typography variant="h5" sx={{ display: { md: "none" } }}>
+              Dream.
+            </Typography>
             {showLogin ? (
               <>
                 <SigninForm

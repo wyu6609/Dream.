@@ -6,14 +6,16 @@ import Modal from "@mui/material/Modal";
 import NewDream from "./NewDream";
 const style = {
   position: "absolute",
-  top: "25%",
+  top: "48%",
   left: "50%",
   transform: "translate(-50%, -50%)",
   width: 400,
   bgcolor: "background.paper",
-  border: "2px solid #000",
-  boxShadow: 24,
-  mt: { xs: 6 },
+  elevation: 10,
+  borderRadius: 2,
+  boxShadow: 10,
+
+  p: { xs: 2 },
 };
 
 export default function ModalEx({ open, setOpen, handleOpen }) {

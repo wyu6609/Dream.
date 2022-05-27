@@ -32,7 +32,7 @@ export default function SignIn() {
           alignItems: "center",
         }}
       >
-        <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+        <Box component="form" onSubmit={handleSubmit} noValidate>
           <TextField
             margin="normal"
             required
@@ -51,7 +51,7 @@ export default function SignIn() {
             label="Description"
             id="description"
             multiline
-            rows={4}
+            rows={6}
           />
 
           <Box sx={{ display: "flex", justifyContent: "space-even" }}>
@@ -79,7 +79,7 @@ export default function SignIn() {
             variant="contained"
             sx={{ mt: 3, mb: 2 }}
           >
-            Add dream
+            Add Dream
           </Button>
         </Box>
       </Box>

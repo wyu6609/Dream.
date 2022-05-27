@@ -27,7 +27,7 @@ function Copyright(props) {
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#512b76",
+      main: "#6320ee",
       contrastText: "white",
     },
   },
@@ -81,7 +81,7 @@ function SignUpForm({ onLogin, showLogin, setShowLogin }) {
             alignItems: "center",
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: "#512b76" }}>
+          <Avatar sx={{ m: 1, bgcolor: "#6320ee" }}>
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">

@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useNavigate } from "react-router-dom";
 import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
@@ -41,7 +42,7 @@ const item = {
 
 const itemCategory = {
   boxShadow: "0 -1px 0 rgb(255,255,255,0.1) inset",
-  py: 3,
+  py: 1,
   justifyContent: "flex-end",
 };
 
