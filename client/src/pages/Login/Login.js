@@ -18,7 +18,7 @@ import SignupForm from "./SignupForm";
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#8c32a8",
+      main: "#6320EE",
       contrastText: "white",
     },
   },
@@ -39,7 +39,7 @@ export default function Login({ onLogin, fetchCartLength, fetchBots }) {
           md={7}
           sx={{
             backgroundImage:
-              "url(https://www.teahub.io/photos/full/276-2766425_galaxy-dream-catcher-and-purple-image-galaxy-purple.jpg)",
+              "url(https://img.itch.zone/aW1hZ2UvOTkyODY3LzU2NDkwMTAucG5n/original/3lXVAy.png)",
             backgroundRepeat: "no-repeat",
             backgroundColor: (t) =>
               t.palette.mode === "light"

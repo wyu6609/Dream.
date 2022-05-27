@@ -5,7 +5,7 @@ import AppBar from "@mui/material/AppBar";
 import Grid from "@mui/material/Grid";
 
 import IconButton from "@mui/material/IconButton";
-import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
+import ExitToAppRoundedIcon from "@mui/icons-material/ExitToAppRounded";
 import MenuIcon from "@mui/icons-material/Menu";
 
 import Toolbar from "@mui/material/Toolbar";
@@ -36,12 +36,13 @@ function Header(props) {
               hello user
             </Grid>
             <Grid item>
+              log out
               <IconButton
                 edge="end"
                 color="inherit"
                 onClick={props.handleLogoutClick}
               >
-                <LogoutOutlinedIcon />
+                <ExitToAppRoundedIcon />
               </IconButton>
             </Grid>
           </Grid>

@@ -1,7 +1,13 @@
 import React from "react";
-
+import Post from "./Post";
 const DreamWall = () => {
-  return <div>DreamWall</div>;
+  return (
+    <div>
+      <Post sx={{ py: 2 }} />
+      <Post />
+      <Post />
+    </div>
+  );
 };
 
 export default DreamWall;

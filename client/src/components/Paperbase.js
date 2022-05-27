@@ -24,9 +24,9 @@ function Copyright() {
 let theme = createTheme({
   palette: {
     primary: {
-      light: "#8c32a8",
-      main: "#8c32a8",
-      dark: "#8c32a8",
+      light: "#6320EE",
+      main: "#6320EE",
+      dark: "#6320EE",
     },
   },
   typography: {
@@ -128,7 +128,7 @@ theme = {
       styleOverrides: {
         root: {
           "&.Mui-selected": {
-            color: "#8c32a8",
+            color: "#8075FF",
           },
         },
       },
