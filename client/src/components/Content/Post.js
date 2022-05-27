@@ -16,6 +16,8 @@ export default function ControlledAccordions() {
 
   return (
     <Accordion
+      disableGutters
+      false
       elevation={3}
       expanded={expanded === "panel1"}
       onChange={handleChange("panel1")}
@@ -40,7 +42,7 @@ export default function ControlledAccordions() {
         <Avatar sx={{ width: 24, height: 24 }} />
       </AccordionSummary>
 
-      <AccordionDetails>
+      <AccordionDetails onChange={handleChange("panel1")}>
         <Typography>
           Nulla facilisi. Phasellus sollicitudin nulla et quam mattis feugiat.
           Aliquam eget maximus est, id dignissim quam. Nulla facilisi. Phasellus

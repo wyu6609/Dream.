@@ -32,9 +32,7 @@ function Header(props) {
                 <MenuIcon />
               </IconButton>
             </Grid>
-            <Grid sx={{ mt: 1.5 }} item xs>
-              hello user
-            </Grid>
+            <Grid sx={{ mt: 1.5 }} item xs></Grid>
             <Grid item>
               log out
               <IconButton

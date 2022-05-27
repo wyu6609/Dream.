@@ -13,23 +13,15 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
-function Copyright(props) {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center">
-      <Link color="inherit" href="">
-        Your Website
-      </Link>
-      {new Date().getFullYear()}
-    </Typography>
-  );
-}
-
 const theme = createTheme({
   palette: {
     primary: {
       main: "#6320ee",
       contrastText: "white",
     },
+  },
+  typography: {
+    fontFamily: "Exo, sans-serif",
   },
 });
 function SignUpForm({ onLogin, showLogin, setShowLogin }) {
@@ -62,7 +54,7 @@ function SignUpForm({ onLogin, showLogin, setShowLogin }) {
       } else {
         r.json().then((err) => {
           err.errors.map((error) => {
-            console.log(error);
+            alert(error);
           });
         });
       }

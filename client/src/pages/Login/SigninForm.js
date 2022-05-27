@@ -15,30 +15,15 @@ import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useNavigate } from "react-router-dom";
 
-function Copyright(props) {
-  return (
-    <Typography
-      variant="body2"
-      color="text.secondary"
-      align="center"
-      {...props}
-    >
-      {"Copyright © "}
-      <Link color="inherit" href="">
-        Your Website
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
-
 const theme = createTheme({
   palette: {
     primary: {
       main: "#6320ee",
       contrastText: "white",
     },
+  },
+  typography: {
+    fontFamily: "Exo, sans-serif",
   },
 });
 
@@ -67,32 +52,32 @@ function LoginForm({ onLogin, showLogin, setShowLogin }) {
       } else {
         r.json().then((err) => {
           err.errors.map((error) => {
-            console.log(error);
+            alert(error);
           });
         });
       }
     });
   };
 
-  const handleDemoLogin = () => {
-    let username = "admin";
-    let password = "admin";
-    fetch("/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ username, password }),
-    }).then((r) => {
-      if (r.ok) {
-        r.json().then((user) => {
-          onLogin(user);
+  // const handleDemoLogin = () => {
+  //   let username = "admin";
+  //   let password = "admin";
+  //   fetch("/login", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify({ username, password }),
+  //   }).then((r) => {
+  //     if (r.ok) {
+  //       r.json().then((user) => {
+  //         onLogin(user);
 
-          navigate("/");
-        });
-      }
-    });
-  };
+  //         navigate("/");
+  //       });
+  //     }
+  //   });
+  // };
 
   return (
     <ThemeProvider theme={theme}>
