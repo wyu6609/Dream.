@@ -19,7 +19,7 @@ function Header(props) {
 
   return (
     <React.Fragment>
-      <AppBar color="primary" position="sticky" elevation={10}>
+      <AppBar color="primary" position="sticky" elevation={20}>
         <Toolbar>
           <Grid container spacing={1} sx={{ display: "flex" }}>
             <Grid sx={{ display: { sm: "none", xs: "block" } }} item>

@@ -1,0 +1,8 @@
+.accordian {
+  background-color: #ffffff10;
+  border-top: 1px solid #ffffff30;
+  border-radius: 1rem;
+  -webkit-backdrop-filter: blur(0.75rem);
+  backdrop-filter: blur(0.75rem);
+  transition: ease 0.5s;
+}

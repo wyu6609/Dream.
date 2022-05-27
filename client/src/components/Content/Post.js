@@ -18,7 +18,7 @@ export default function ControlledAccordions() {
     <Accordion
       disableGutters
       false
-      elevation={3}
+      elevation={5}
       expanded={expanded === "panel1"}
       onChange={handleChange("panel1")}
       sx={{
@@ -33,7 +33,9 @@ export default function ControlledAccordions() {
         aria-controls="panel1bh-content"
         id="panel1bh-header"
       >
-        <Typography sx={{ width: "33%", flexShrink: 0 }}>05/12/22</Typography>
+        <Typography sx={{ width: "33%", flexShrink: 0 }}>
+          10:00:00AM, 05/12/22
+        </Typography>
 
         <Typography sx={{ width: "95%", color: "text.secondary" }}>
           I was being chased by a monkey..

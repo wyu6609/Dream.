@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useLocation } from "react-router-dom";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -6,7 +7,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Link from "@mui/material/Link";
 import Navigator from "./Navigator";
-import Content from "./Content";
+import Content from "./Content/Content";
 import Header from "./Header";
 import Waves from "./Waves";
 function Copyright() {
@@ -167,8 +168,32 @@ theme = {
 const drawerWidth = 256;
 
 export default function Paperbase({ handleLogoutClick }) {
+  const location = useLocation();
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const isSmUp = useMediaQuery(theme.breakpoints.up("sm"));
+  const [selectedIndex, setSelectedIndex] = React.useState(0);
+  React.useEffect(() => {
+    switch (location.pathname) {
+      case "/":
+        setSelectedIndex(0);
+        break;
+      case "/my_dreams":
+        setSelectedIndex(1);
+        break;
+      case "/dream_library":
+        setSelectedIndex(2);
+        break;
+      case "/account":
+        setSelectedIndex(3);
+        break;
+      case "/login":
+        setSelectedIndex(4);
+        break;
+      default:
+        setSelectedIndex(false);
+    }
+  }, []);
+  console.log(location.pathname);
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -184,6 +209,8 @@ export default function Paperbase({ handleLogoutClick }) {
         >
           {isSmUp ? null : (
             <Navigator
+              selectedIndex={selectedIndex}
+              setSelectedIndex={setSelectedIndex}
               PaperProps={{ style: { width: drawerWidth } }}
               variant="temporary"
               open={mobileOpen}
@@ -192,6 +219,8 @@ export default function Paperbase({ handleLogoutClick }) {
           )}
 
           <Navigator
+            selectedIndex={selectedIndex}
+            setSelectedIndex={setSelectedIndex}
             PaperProps={{ style: { width: drawerWidth } }}
             sx={{ display: { sm: "block", xs: "none" } }}
           />

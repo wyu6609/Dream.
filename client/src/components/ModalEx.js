@@ -3,7 +3,7 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
-import NewDream from "./NewDream";
+import NewDream from "./Content/NewDream";
 const style = {
   position: "absolute",
   top: "48%",
