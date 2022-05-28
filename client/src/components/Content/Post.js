@@ -16,14 +16,16 @@ export default function ControlledAccordions() {
 
   return (
     <Accordion
+      className="accordian"
       disableGutters
       false
       elevation={5}
       expanded={expanded === "panel1"}
       onChange={handleChange("panel1")}
       sx={{
+        color: "white",
         "&:hover": {
-          backgroundColor: "#eeeeee",
+          backgroundColor: "#bcb9f5",
         },
       }}
     >
@@ -33,11 +35,14 @@ export default function ControlledAccordions() {
         aria-controls="panel1bh-content"
         id="panel1bh-header"
       >
-        <Typography sx={{ width: "33%", flexShrink: 0 }}>
+        <Typography
+          variant="body2"
+          sx={{ width: "33%", flexShrink: 0, color: "grey" }}
+        >
           10:00:00AM, 05/12/22
         </Typography>
 
-        <Typography sx={{ width: "95%", color: "text.secondary" }}>
+        <Typography variant="body1" sx={{ width: "95%", color: "white" }}>
           I was being chased by a monkey..
         </Typography>
         <Typography sx={{ flexShrink: 0, px: 1 }}>User</Typography>
