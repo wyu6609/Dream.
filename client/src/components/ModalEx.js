@@ -24,6 +24,7 @@ export default function ModalEx({ open, setOpen, handleOpen }) {
   return (
     <div>
       <Modal
+        className="accordian"
         open={open}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
