@@ -9,6 +9,35 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 
 export default function BasicCard() {
+  function stringToColor(string) {
+    let hash = 0;
+    let i;
+
+    /* eslint-disable no-bitwise */
+    for (i = 0; i < string.length; i += 1) {
+      hash = string.charCodeAt(i) + ((hash << 5) - hash);
+    }
+
+    let color = "#";
+
+    for (i = 0; i < 3; i += 1) {
+      const value = (hash >> (i * 8)) & 0xff;
+      color += `00${value.toString(16)}`.slice(-2);
+    }
+    /* eslint-enable no-bitwise */
+
+    return color;
+  }
+
+  function stringAvatar(name) {
+    return {
+      sx: {
+        bgcolor: stringToColor(name),
+      },
+      children: `${name.split(" ")[0][0]}${name.split(" ")[1][0]}`,
+    };
+  }
+
   return (
     <Card
       sx={{
@@ -23,9 +52,13 @@ export default function BasicCard() {
       <CardContent>
         <Container sx={{ display: "flex", justifyContent: "space-between" }}>
           <Typography sx={{ fontSize: 10 }}>10:00:00 AM, 12/12/22</Typography>
-          <Typography variant="body2" component="div" sx={{ display: "flex" }}>
+          <Typography
+            variant="body2"
+            component="div"
+            sx={{ display: "flex", fontSize: 14 }}
+          >
             user
-            <Avatar sx={{ ml: 1, width: 24, height: 24 }} />
+            <Avatar {...stringAvatar("Kent Dodds")} sx={{ ml: 1 }} />
           </Typography>
         </Container>
         <Container>

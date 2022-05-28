@@ -2,6 +2,11 @@ class DreamsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
 
   def index
+    dreams = Dream.all
+    render json: dreams
+  end
+
+  def mydreams
     render json: @current_user.dreams.all
   end
 
