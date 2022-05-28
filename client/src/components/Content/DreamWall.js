@@ -6,8 +6,8 @@ const DreamWall = () => {
 
   //map dreams with Post
   return (
-    <div className="post-container">
-      <Post sx={{}} />
+    <div className="post-container  ">
+      <Post />
       <Post sx={{}} />
       <Post sx={{}} />
       <Post sx={{}} />

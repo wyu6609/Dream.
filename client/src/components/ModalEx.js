@@ -13,7 +13,6 @@ const style = {
   bgcolor: "background.paper",
   elevation: 10,
   borderRadius: 2,
-  boxShadow: 10,
 
   p: { xs: 2 },
 };
