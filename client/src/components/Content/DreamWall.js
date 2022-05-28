@@ -10,10 +10,6 @@ const DreamWall = () => {
       <Post />
       <Post sx={{}} />
       <Post sx={{}} />
-      <Post sx={{}} />
-      <Post sx={{}} />
-      <Post sx={{}} />
-      <Post sx={{}} />
     </div>
   );
 };
