@@ -34,7 +34,6 @@ function Header(props) {
             </Grid>
             <Grid sx={{ mt: 1.5 }} item xs></Grid>
             <Grid item>
-              log out
               <IconButton
                 edge="end"
                 color="inherit"
