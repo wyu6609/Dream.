@@ -84,32 +84,33 @@ export default function Login({ onLogin, fetchCartLength, fetchBots }) {
             <Typography variant="h5" sx={{ display: { md: "none" } }}>
               Dream.
             </Typography>
-            {showLogin ? (
-              <>
+            <Paper sx={{ mt: 10, elevation: 2 }}>
+              {showLogin ? (
                 <SigninForm
                   onLogin={onLogin}
                   showLogin={showLogin}
                   setShowLogin={setShowLogin}
                 />
-              </>
-            ) : (
-              <>
-                <SignupForm
-                  onLogin={onLogin}
-                  showLogin={showLogin}
-                  setShowLogin={setShowLogin}
-                />
-              </>
-            )}
-            <Button
-              onClick={() => {
-                setShowLogin(!showLogin);
-              }}
-            >
-              {showLogin
-                ? "Don't have an account? Sign up here"
-                : "Already have an account? Sign in here"}
-            </Button>
+              ) : (
+                <>
+                  <SignupForm
+                    onLogin={onLogin}
+                    showLogin={showLogin}
+                    setShowLogin={setShowLogin}
+                  />
+                </>
+              )}
+              <Button
+                sx={{ ml: 2 }}
+                onClick={() => {
+                  setShowLogin(!showLogin);
+                }}
+              >
+                {showLogin
+                  ? "Don't have an account? Sign up here"
+                  : "Already have an account? Sign in here"}
+              </Button>
+            </Paper>
           </Box>
         </Grid>
       </Grid>

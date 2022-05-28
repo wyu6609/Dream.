@@ -51,33 +51,35 @@ function LoginForm({ onLogin, showLogin, setShowLogin }) {
         }, []);
       } else {
         r.json().then((err) => {
-          err.errors.map((error) => {
-            alert(error);
-          });
+          alert(err);
+          // err.errors.map((error) => {
+          //   alert(error);
+          // });
         });
       }
     });
   };
 
-  // const handleDemoLogin = () => {
-  //   let username = "admin";
-  //   let password = "admin";
-  //   fetch("/login", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify({ username, password }),
-  //   }).then((r) => {
-  //     if (r.ok) {
-  //       r.json().then((user) => {
-  //         onLogin(user);
+  const handleDemoLogin = () => {
+    let username = "admin";
+    let password = "admin";
+    console.log(username, password);
+    fetch("/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ username, password }),
+    }).then((r) => {
+      if (r.ok) {
+        r.json().then((user) => {
+          onLogin(user);
 
-  //         navigate("/");
-  //       });
-  //     }
-  //   });
-  // };
+          navigate("/");
+        });
+      }
+    });
+  };
 
   return (
     <ThemeProvider theme={theme}>
@@ -85,7 +87,7 @@ function LoginForm({ onLogin, showLogin, setShowLogin }) {
         <CssBaseline />
         <Box
           sx={{
-            marginTop: 8,
+            marginTop: 2,
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
@@ -140,6 +142,17 @@ function LoginForm({ onLogin, showLogin, setShowLogin }) {
               sx={{ mt: 3, mb: 2 }}
             >
               Sign In
+            </Button>
+            <Button
+              type="button"
+              variant="contained"
+              color="warning"
+              sx={{ mb: 2, alignItems: "center" }}
+              onClick={() => {
+                handleDemoLogin();
+              }}
+            >
+              DEMO LOGIN
             </Button>
           </Box>
         </Box>
