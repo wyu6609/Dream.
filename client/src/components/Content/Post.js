@@ -8,7 +8,7 @@ import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 
-export default function BasicCard() {
+function Post({ dream }) {
   function stringToColor(string) {
     let hash = 0;
     let i;
@@ -31,9 +31,6 @@ export default function BasicCard() {
 
   function stringAvatar(name) {
     return {
-      sx: {
-        bgcolor: stringToColor(name),
-      },
       children: `${name.split(" ")[0][0]}${name.split(" ")[1][0]}`,
     };
   }
@@ -57,8 +54,18 @@ export default function BasicCard() {
             component="div"
             sx={{ display: "flex", fontSize: 14 }}
           >
-            user
-            <Avatar {...stringAvatar("Kent Dodds")} sx={{ ml: 1 }} />
+            {dream.user.username}
+            <Avatar
+              {...stringAvatar(
+                `${dream.user.first_name} ${dream.user.last_name}`
+              )}
+              sx={{
+                ml: 1,
+                bgcolor: stringToColor(
+                  `${dream.user.first_name} ${dream.user.last_name}`
+                ),
+              }}
+            />
           </Typography>
         </Container>
         <Container>
@@ -70,14 +77,14 @@ export default function BasicCard() {
               justifyContent: "center",
             }}
           >
-            I was chased by monkeys man...
+            {dream.title}
           </Typography>
         </Container>
       </CardContent>
     </Card>
   );
 }
-
+export default Post;
 // <Accordion
 //   disableGutters
 //   false

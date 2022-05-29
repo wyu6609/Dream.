@@ -5,17 +5,8 @@ import MyDreams from "./MyDreams";
 import DreamLibrary from "./DreamLibrary";
 import Account from "./Account";
 import Error from "./Error";
-import axios from "axios";
 
 export default function Content() {
-  const [dreamwall, setDreamWall] = React.useState([]);
-  React.useEffect(() => {
-    axios.get(`/dreams`).then((res) => {
-      const dreams = res.data;
-      console.log(dreams);
-      setDreamWall(dreams);
-    });
-  }, []);
   return (
     <Routes>
       <Route path="/" element={<DreamWall />} />
