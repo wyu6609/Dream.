@@ -4,13 +4,12 @@ import "./DreamWall.css";
 import axios from "axios";
 const DreamWall = () => {
   //map dreams to post
-  const [dreamwall, setDreamWall] = React.useState([]);
-  React.useEffect(() => {
+  const [dreamwall, setDreamWall] = useState([]);
+  useEffect(() => {
     axios.get(`/dreams`).then((res) => {
       const dreams = res.data;
 
       setDreamWall(dreams.slice(0, 4));
-      console.log(dreamwall);
     });
   }, []);
   console.log(dreamwall);
