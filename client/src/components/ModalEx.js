@@ -25,32 +25,12 @@ export default function ModalEx({
   setOpen,
   handleOpen,
   user,
+  handleSubmit
 }) {
   const handleClose = () => setOpen(false);
   console.log(dreamwall);
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    let formObj = {
-      user_id: user.id,
-      title: data.get("title"),
-      description: data.get("description"),
-      date: `${data.get("time")} ${data.get("date")}`,
-    };
-    // axios post
-    console.log(dreamwall);
-    axios
-      .post("/dreams", formObj)
-      .then(function (response) {
-        console.log(response);
-
-        setDreamWall([...dreamwall, formObj]);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  };
+  
 
   return (
     <div>

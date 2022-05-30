@@ -63,8 +63,7 @@ const itemCategory = {
 export default function Navigator(props) {
   const { ...other } = props;
   const navigate = useNavigate();
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
+ 
 
   const handleListItemClick = (event, index) => {
     props.setSelectedIndex(index);
@@ -72,12 +71,7 @@ export default function Navigator(props) {
 
   return (
     <>
-      <ModalEx
-        open={open}
-        setOpen={setOpen}
-        handleOpen={handleOpen}
-        user={props.user}
-      />
+     
       <Drawer variant="permanent" {...other} elevation={5}>
         <List disablePadding>
           <ListItem
