@@ -43,7 +43,7 @@ function App() {
   // show dashboard if logged in
   return (
     <div>
-      <Paperbase handleLogoutClick={handleLogoutClick} />
+      <Paperbase handleLogoutClick={handleLogoutClick} user={user} />
     </div>
   );
 }

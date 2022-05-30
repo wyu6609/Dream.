@@ -3,7 +3,8 @@ import Post from "./Post";
 import "./DreamWall.css";
 import axios from "axios";
 import DreamDescriptionModal from "../DreamDescriptionModal";
-const DreamWall = () => {
+const DreamWall = ({ user }) => {
+  console.log(user);
   //map dreams to post
   const [dreamwall, setDreamWall] = useState([]);
   // modal state

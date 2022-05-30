@@ -170,7 +170,7 @@ const drawerWidth = 256;
 
 //axios fetch
 
-export default function Paperbase({ handleLogoutClick }) {
+export default function Paperbase({ handleLogoutClick, user }) {
   const location = useLocation();
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const isSmUp = useMediaQuery(theme.breakpoints.up("sm"));
@@ -203,7 +203,7 @@ export default function Paperbase({ handleLogoutClick }) {
 
   return (
     <ThemeProvider theme={theme}>
-      <Box sx={{ display: "flex", minHeight: "100vh" }}>
+      <Box sx={{ display: "flex" }}>
         <CssBaseline />
         <Box
           component="nav"
@@ -233,7 +233,7 @@ export default function Paperbase({ handleLogoutClick }) {
             handleLogoutClick={handleLogoutClick}
           />
 
-          <Waves />
+          <Waves user={user} />
         </Box>
       </Box>
     </ThemeProvider>

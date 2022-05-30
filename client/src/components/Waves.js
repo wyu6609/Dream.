@@ -2,7 +2,7 @@ import React from "react";
 import "./Waves.css";
 import Content from "./Content/Content";
 import Box from "@mui/material/Box";
-const Waves = () => {
+const Waves = ({ user }) => {
   return (
     <div>
       <div className="area">
@@ -18,7 +18,7 @@ const Waves = () => {
           <li></li>
           <li></li>
         </ul>
-        <Content />
+        <Content user={user} />
       </div>
     </div>
   );
