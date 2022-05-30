@@ -33,9 +33,14 @@ function stringAvatar(name) {
   };
 }
 
-function Post({ dream }) {
+function Post({ dream, handleOpen }) {
   return (
     <Card
+      onClick={() => {
+        console.log("clicked");
+
+        handleOpen(dream.description);
+      }}
       sx={{
         my: 1,
         minWidth: 275,

@@ -10,6 +10,7 @@ import Navigator from "./Navigator";
 import Content from "./Content/Content";
 import Header from "./Header";
 import Waves from "./Waves";
+import axios from "axios";
 function Copyright() {
   return (
     <Typography variant="body2" color="text.secondary" align="center">
@@ -167,6 +168,8 @@ theme = {
 
 const drawerWidth = 256;
 
+//axios fetch
+
 export default function Paperbase({ handleLogoutClick }) {
   const location = useLocation();
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -193,7 +196,6 @@ export default function Paperbase({ handleLogoutClick }) {
         setSelectedIndex(false);
     }
   }, []);
-  console.log(location.pathname);
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);

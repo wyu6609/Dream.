@@ -8,13 +8,15 @@ import Error from "./Error";
 
 export default function Content() {
   return (
-    <Routes>
-      <Route path="/" element={<DreamWall />} />
+    <>
+      <Routes>
+        <Route path="/" element={<DreamWall />} />
 
-      <Route path="/my_dreams" element={<MyDreams />} />
-      <Route path="/dream_library" element={<DreamLibrary />} />
-      <Route path="/account" element={<Account />} />
-      <Route path="*" element={<Error />} />
-    </Routes>
+        <Route path="/my_dreams" element={<MyDreams />} />
+        <Route path="/dream_library" element={<DreamLibrary />} />
+        <Route path="/account" element={<Account />} />
+        <Route path="*" element={<Error />} />
+      </Routes>
+    </>
   );
 }
