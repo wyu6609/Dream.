@@ -36,7 +36,6 @@ export default function Content({ user, openModal, setOpenModal, handleOpen }) {
       .catch(function (error) {
         console.log(error);
       });
-    window.location.reload(false);
   };
 
   return (

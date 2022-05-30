@@ -4,7 +4,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import NewDream from "./Content/NewDream";
-import axios from "axios";
+
 const style = {
   position: "absolute",
   top: "48%",
@@ -20,17 +20,15 @@ const style = {
 
 export default function ModalEx({
   dreamwall,
-  setDreamWall,
+
   open,
   setOpen,
   handleOpen,
   user,
-  handleSubmit
+  handleSubmit,
 }) {
   const handleClose = () => setOpen(false);
   console.log(dreamwall);
-
-  
 
   return (
     <div>

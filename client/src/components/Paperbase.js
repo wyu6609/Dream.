@@ -203,7 +203,10 @@ export default function Paperbase({ handleLogoutClick, user }) {
 
   //add dream modald
   const [openModal, setOpenModal] = React.useState(false);
-  const handleOpen = () => setOpenModal(true);
+  const handleOpen = () => {
+    console.log("clicked2");
+    setOpenModal(true);
+  };
 
   return (
     <ThemeProvider theme={theme}>
