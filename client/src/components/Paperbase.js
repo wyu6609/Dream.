@@ -217,10 +217,12 @@ export default function Paperbase({ handleLogoutClick, user }) {
               variant="temporary"
               open={mobileOpen}
               onClose={handleDrawerToggle}
+              user={user}
             />
           )}
 
           <Navigator
+            user={user}
             selectedIndex={selectedIndex}
             setSelectedIndex={setSelectedIndex}
             PaperProps={{ style: { width: drawerWidth } }}

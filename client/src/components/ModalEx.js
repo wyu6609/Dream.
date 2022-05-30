@@ -17,7 +17,7 @@ const style = {
   p: { xs: 2 },
 };
 
-export default function ModalEx({ open, setOpen, handleOpen }) {
+export default function ModalEx({ open, setOpen, handleOpen, user }) {
   const handleClose = () => setOpen(false);
 
   return (
@@ -30,7 +30,7 @@ export default function ModalEx({ open, setOpen, handleOpen }) {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <NewDream />
+          <NewDream user={user} />
         </Box>
       </Modal>
     </div>

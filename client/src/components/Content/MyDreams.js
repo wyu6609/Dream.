@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Post from "./Post";
 import axios from "axios";
-const MyDreams = () => {
+const MyDreams = ({ user }) => {
   //my dream wall state
   const [myDreamWall, setMyDreamWall] = useState([]);
 

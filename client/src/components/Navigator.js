@@ -72,7 +72,12 @@ export default function Navigator(props) {
 
   return (
     <>
-      <ModalEx open={open} setOpen={setOpen} handleOpen={handleOpen} />
+      <ModalEx
+        open={open}
+        setOpen={setOpen}
+        handleOpen={handleOpen}
+        user={props.user}
+      />
       <Drawer variant="permanent" {...other} elevation={5}>
         <List disablePadding>
           <ListItem

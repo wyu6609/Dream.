@@ -22,7 +22,7 @@ const DreamWall = ({ user }) => {
     axios.get(`/dreams`).then((res) => {
       const dreams = res.data;
 
-      setDreamWall(dreams.slice(0, 4));
+      setDreamWall(dreams.slice(0, 5));
     });
   }, []);
 
