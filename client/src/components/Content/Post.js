@@ -52,7 +52,7 @@ function Post({ dream, handleOpen }) {
     >
       <CardContent>
         <Container sx={{ display: "flex", justifyContent: "space-between" }}>
-          <Typography sx={{ fontSize: 10 }}>10:00:00 AM, 12/12/22</Typography>
+          <Typography sx={{ fontSize: 10 }}>{dream.created_at}</Typography>
           <Typography
             variant="body2"
             component="div"

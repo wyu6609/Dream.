@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import Post from "./Post";
 import "./DreamWall.css";
-import axios from "axios";
+
 import DreamDescriptionModal from "../DreamDescriptionModal";
-const DreamWall = ({ user }) => {
+const DreamWall = ({ user, dreamwall, setDreamWall }) => {
   console.log(user);
   //map dreams to post
-  const [dreamwall, setDreamWall] = useState([]);
+
   // modal state
   const [open, setOpen] = useState(false);
   // dream description
@@ -17,20 +17,14 @@ const DreamWall = ({ user }) => {
 
     setOpen(true);
   };
+  console.log(dreamwall);
+  // useEffect(() => {
+  //   axios.get(`/dreams`).then((res) => {
+  //     const dreams = res.data;
 
-  useEffect(() => {
-    axios.get(`/dreams`).then((res) => {
-      const dreams = res.data;
-
-      setDreamWall(dreams.slice(0, 5));
-    });
-  }, []);
-
-  const fetchDreams = () => {
-    fetch("/dreams")
-      .then((resp) => resp.json())
-      .then((data) => setDreamWall(dreams.slice(0, 4)));
-  };
+  //     setDreamWall(dreams.slice(0, 5));
+  //   });
+  // }, []);
 
   console.log(dreamwall);
   const dreams = dreamwall.map((dream) => {

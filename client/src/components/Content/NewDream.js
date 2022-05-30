@@ -11,20 +11,8 @@ import Box from "@mui/material/Box";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-import axios from "axios";
 
-export default function NewDream({ user }) {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      user_id: user.id,
-      title: data.get("title"),
-      description: data.get("description"),
-      date: `${data.get("time")} ${data.get("date")}`,
-    });
-  };
-
+export default function NewDream({ user, handleSubmit }) {
   return (
     <Container component="main" maxWidth="xs" sx={{ p: 1 }}>
       <CssBaseline />

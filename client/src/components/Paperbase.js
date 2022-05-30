@@ -201,6 +201,10 @@ export default function Paperbase({ handleLogoutClick, user }) {
     setMobileOpen(!mobileOpen);
   };
 
+  //add dream modald
+  const [openModal, setOpenModal] = React.useState(false);
+  const handleOpen = () => setOpenModal(true);
+
   return (
     <ThemeProvider theme={theme}>
       <Box sx={{ display: "flex" }}>
@@ -218,6 +222,7 @@ export default function Paperbase({ handleLogoutClick, user }) {
               open={mobileOpen}
               onClose={handleDrawerToggle}
               user={user}
+              handleOpen={handleOpen}
             />
           )}
 
@@ -227,6 +232,7 @@ export default function Paperbase({ handleLogoutClick, user }) {
             setSelectedIndex={setSelectedIndex}
             PaperProps={{ style: { width: drawerWidth } }}
             sx={{ display: { sm: "block", xs: "none" } }}
+            handleOpen={handleOpen}
           />
         </Box>
         <Box sx={{ flex: 1, display: "flex", flexDirection: "column" }}>
@@ -235,7 +241,12 @@ export default function Paperbase({ handleLogoutClick, user }) {
             handleLogoutClick={handleLogoutClick}
           />
 
-          <Waves user={user} />
+          <Waves
+            user={user}
+            open={openModal}
+            setOpen={setOpenModal}
+            handleOpen={handleOpen}
+          />
         </Box>
       </Box>
     </ThemeProvider>

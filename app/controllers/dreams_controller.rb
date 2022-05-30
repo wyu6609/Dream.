@@ -2,7 +2,7 @@ class DreamsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
 
   def index
-    dreams = Dream.all
+    dreams = Dream.all.order(created_at: :desc)
     render json: dreams
   end
 
