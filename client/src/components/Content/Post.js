@@ -6,7 +6,11 @@ import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
+import Link from "@mui/material/Link";
 import Typography from "@mui/material/Typography";
+import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
+import IconButton from "@mui/material/IconButton";
+import PreviewOutlinedIcon from "@mui/icons-material/PreviewOutlined";
 function stringToColor(string) {
   let hash = 0;
   let i;
@@ -33,17 +37,13 @@ function stringAvatar(name) {
   };
 }
 
-function Post({ dream, handleOpen }) {
+function Post({ dream, handleOpen, user, handleDelete }) {
   return (
     <Card
-      onClick={() => {
-        console.log("clicked");
-
-        handleOpen(dream.description);
-      }}
       sx={{
         my: 1,
-        minWidth: 275,
+        minWidth: 250,
+        height: "90%",
         color: "white",
         backgroundColor: "rgba(255, 255, 255, 0.25)",
         boxShadow: "0 12px 56px 0 rgba(31, 38, 135, 0.37)",
@@ -53,12 +53,14 @@ function Post({ dream, handleOpen }) {
       <CardContent>
         <Container sx={{ display: "flex", justifyContent: "space-between" }}>
           <Typography sx={{ fontSize: 10 }}>{dream.created_at}</Typography>
+
           <Typography
             variant="body2"
             component="div"
             sx={{ display: "flex", fontSize: 14 }}
           >
             {dream.user.username}
+
             <Avatar
               {...stringAvatar(
                 `${dream.user.first_name} ${dream.user.last_name}`
@@ -73,16 +75,36 @@ function Post({ dream, handleOpen }) {
           </Typography>
         </Container>
         <Container>
-          <Typography
-            variant="body1"
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
+          <Link
+            underline="hover"
+            onClick={() => {
+              handleOpen(dream.description);
             }}
+            sx={{ color: "white" }}
           >
-            {dream.title}
-          </Typography>
+            <Typography
+              variant="body1"
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              {dream.title}
+            </Typography>
+          </Link>
+          {dream.user_id === user.id ? (
+            <IconButton
+              sx={{ color: "red" }}
+              onClick={() => {
+                handleDelete(dream.id);
+              }}
+            >
+              <DeleteOutlineOutlinedIcon />
+            </IconButton>
+          ) : (
+            ""
+          )}
         </Container>
       </CardContent>
     </Card>

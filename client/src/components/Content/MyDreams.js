@@ -1,21 +1,38 @@
 import React, { useState, useEffect } from "react";
 import Post from "./Post";
 import axios from "axios";
-const MyDreams = ({ user }) => {
-  //my dream wall state
-  const [myDreamWall, setMyDreamWall] = useState([]);
+const MyDreams = ({
+  user,
+  dreamwall,
+  setDreamWall,
+  handleDelete,
+  setDreamDescription,
+  handleOpen,
+}) => {
+  // //my dream wall state
+  // const [myDreamWall, setMyDreamWall] = useState([]);
 
-  useEffect(() => {
-    axios.get("/mydreams").then((res) => {
-      const myDreams = res.data;
-      console.log(myDreams);
-      setMyDreamWall(myDreams);
+  // useEffect(() => {
+  //   axios.get("/mydreams").then((res) => {
+  //     const myDreams = res.data;
+  //     console.log(myDreams);
+  //     setMyDreamWall(myDreams);
+  //   });
+  // }, []);
+  console.log(dreamwall);
+  const dreams = dreamwall
+    .filter((el) => el.user.id === user.id)
+    .map((dream) => {
+      return (
+        <Post
+          user={user}
+          dream={dream}
+          handleOpen={handleOpen}
+          setDreamDescription={setDreamDescription}
+          handleDelete={handleDelete}
+        />
+      );
     });
-  }, []);
-
-  const dreams = myDreamWall.map((dream) => {
-    return <Post dream={dream} />;
-  });
 
   return <div className="post-container">{dreams}</div>;
 };

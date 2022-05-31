@@ -7,7 +7,7 @@ class DreamsController < ApplicationController
   end
 
   def mydreams
-    render json: @current_user.dreams.all
+    render json: @current_user.dreams.all.order(created_at: :desc)
   end
 
   def create
@@ -24,7 +24,7 @@ class DreamsController < ApplicationController
   def destroy
     selected_dream = @current_user.dreams.find(params[:id])
     selected_dream.destroy
-    head :no_content
+    render json: selected_dream
   end
 
   private

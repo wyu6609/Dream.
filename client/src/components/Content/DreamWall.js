@@ -3,7 +3,7 @@ import Post from "./Post";
 import "./DreamWall.css";
 
 import DreamDescriptionModal from "../DreamDescriptionModal";
-const DreamWall = ({ user, dreamwall, setDreamWall }) => {
+const DreamWall = ({ user, dreamwall, setDreamWall, handleDelete }) => {
   console.log(user);
   //map dreams to post
 
@@ -30,9 +30,11 @@ const DreamWall = ({ user, dreamwall, setDreamWall }) => {
   const dreams = dreamwall.map((dream) => {
     return (
       <Post
+        user={user}
         dream={dream}
         handleOpen={handleOpen}
         setDreamDescription={setDreamDescription}
+        handleDelete={handleDelete}
       />
     );
   });

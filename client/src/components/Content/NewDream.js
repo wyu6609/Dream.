@@ -11,8 +11,14 @@ import Box from "@mui/material/Box";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-
-export default function NewDream({ user, handleSubmit }) {
+import axios from "axios";
+export default function NewDream({
+  user,
+  dreamwall,
+  setDreamWall,
+  handleSubmit,
+}) {
+  console.log(user, dreamwall);
   return (
     <Container component="main" maxWidth="xs" sx={{ p: 1 }}>
       <CssBaseline />

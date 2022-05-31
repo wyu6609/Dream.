@@ -11,17 +11,6 @@ import Content from "./Content/Content";
 import Header from "./Header";
 import Waves from "./Waves";
 import axios from "axios";
-function Copyright() {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center">
-      {"Copyright © "}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{" "}
-      {new Date().getFullYear()}.
-    </Typography>
-  );
-}
 
 let theme = createTheme({
   palette: {
@@ -175,6 +164,9 @@ export default function Paperbase({ handleLogoutClick, user }) {
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const isSmUp = useMediaQuery(theme.breakpoints.up("sm"));
   const [selectedIndex, setSelectedIndex] = React.useState(0);
+
+  const [dreamwall, setDreamWall] = React.useState([]);
+
   React.useEffect(() => {
     switch (location.pathname) {
       case "/":
@@ -195,18 +187,48 @@ export default function Paperbase({ handleLogoutClick, user }) {
       default:
         setSelectedIndex(false);
     }
+
+    axios.get(`/dreams`).then((res) => {
+      const dreams = res.data;
+      setDreamWall(dreams.slice(0, 5));
+    });
   }, []);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    let formObj = {
+      user_id: user.id,
+      title: data.get("title"),
+      description: data.get("description"),
+      date: `${data.get("time")} ${data.get("date")}`,
+    };
+    // axios post
+
+    axios
+      .post("/dreams", formObj)
+      .then(function (res) {
+        console.log(dreamwall);
+        setDreamWall([res.data, ...dreamwall]);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+
+  const handleDelete = (selected) => {
+    console.log(selected);
+    axios.delete(`/dreams/${selected}`).then((response) => {
+      setDreamWall(dreamwall.filter((dream) => dream.id !== selected));
+      console.log(response);
+    });
+  };
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
 
   //add dream modald
-  const [openModal, setOpenModal] = React.useState(false);
-  const handleOpen = () => {
-    console.log("clicked2");
-    setOpenModal(true);
-  };
 
   return (
     <ThemeProvider theme={theme}>
@@ -225,7 +247,9 @@ export default function Paperbase({ handleLogoutClick, user }) {
               open={mobileOpen}
               onClose={handleDrawerToggle}
               user={user}
-              handleOpen={handleOpen}
+              dreamwall={dreamwall}
+              setDreamWall={setDreamWall}
+              handleSubmit={handleSubmit}
             />
           )}
 
@@ -235,7 +259,9 @@ export default function Paperbase({ handleLogoutClick, user }) {
             setSelectedIndex={setSelectedIndex}
             PaperProps={{ style: { width: drawerWidth } }}
             sx={{ display: { sm: "block", xs: "none" } }}
-            handleOpen={handleOpen}
+            dreamwall={dreamwall}
+            setDreamWall={setDreamWall}
+            handleSubmit={handleSubmit}
           />
         </Box>
         <Box sx={{ flex: 1, display: "flex", flexDirection: "column" }}>
@@ -246,9 +272,9 @@ export default function Paperbase({ handleLogoutClick, user }) {
 
           <Waves
             user={user}
-            open={openModal}
-            setOpen={setOpenModal}
-            handleOpen={handleOpen}
+            dreamwall={dreamwall}
+            setDreamWall={setDreamWall}
+            handleDelete={handleDelete}
           />
         </Box>
       </Box>

@@ -20,12 +20,12 @@ const style = {
 
 export default function ModalEx({
   dreamwall,
-
+  setDreamWall,
+  handleSubmit,
   open,
   setOpen,
   handleOpen,
   user,
-  handleSubmit,
 }) {
   const handleClose = () => setOpen(false);
   console.log(dreamwall);
@@ -40,7 +40,12 @@ export default function ModalEx({
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <NewDream user={user} handleSubmit={handleSubmit} />
+          <NewDream
+            user={user}
+            dreamwall={dreamwall}
+            setDreamWall={setDreamWall}
+            handleSubmit={handleSubmit}
+          />
         </Box>
       </Modal>
     </div>
