@@ -17,8 +17,8 @@ export default function NewDream({
   dreamwall,
   setDreamWall,
   handleSubmit,
+  onClose,
 }) {
-  console.log(user, dreamwall);
   return (
     <Container component="main" maxWidth="xs" sx={{ p: 1 }}>
       <CssBaseline />

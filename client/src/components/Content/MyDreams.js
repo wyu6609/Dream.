@@ -9,17 +9,6 @@ const MyDreams = ({
   setDreamDescription,
   handleOpen,
 }) => {
-  // //my dream wall state
-  // const [myDreamWall, setMyDreamWall] = useState([]);
-
-  // useEffect(() => {
-  //   axios.get("/mydreams").then((res) => {
-  //     const myDreams = res.data;
-  //     console.log(myDreams);
-  //     setMyDreamWall(myDreams);
-  //   });
-  // }, []);
-  console.log(dreamwall);
   const dreams = dreamwall
     .filter((el) => el.user.id === user.id)
     .map((dream) => {

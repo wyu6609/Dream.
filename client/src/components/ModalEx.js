@@ -41,6 +41,7 @@ export default function ModalEx({
       >
         <Box sx={style}>
           <NewDream
+            onClose={handleClose}
             user={user}
             dreamwall={dreamwall}
             setDreamWall={setDreamWall}
