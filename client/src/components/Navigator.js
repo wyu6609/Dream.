@@ -36,11 +36,11 @@ const categories = [
         icon: <PermMediaOutlinedIcon />,
         route: "/dream_library",
       },
-      {
-        id: "Your Info",
-        icon: <AccountCircleRoundedIcon />,
-        route: "/account",
-      },
+      // {
+      //   id: "Your Info",
+      //   icon: <AccountCircleRoundedIcon />,
+      //   route: "/account",
+      // },
     ],
   },
 ];
