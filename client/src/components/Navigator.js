@@ -31,11 +31,11 @@ const categories = [
         route: "/my_dreams",
       },
 
-      {
-        id: "Dream Library",
-        icon: <PermMediaOutlinedIcon />,
-        route: "/dream_library",
-      },
+      // {
+      //   id: "Dream Library",
+      //   icon: <PermMediaOutlinedIcon />,
+      //   route: "/dream_library",
+      // },
       // {
       //   id: "Your Info",
       //   icon: <AccountCircleRoundedIcon />,

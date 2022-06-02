@@ -1,9 +1,16 @@
 import React, { useState, useEffect } from "react";
 import Post from "./Post";
 import "./DreamWall.css";
-
+import AppPagination from "../pagination";
 import DreamDescriptionModal from "../DreamDescriptionModal";
-const DreamWall = ({ user, dreamwall, setDreamWall, handleDelete }) => {
+const DreamWall = ({
+  user,
+  dreamwall,
+  setDreamWall,
+  handleDelete,
+  pagination,
+  handlePageChange,
+}) => {
   console.log(user);
   //map dreams to post
 
@@ -49,6 +56,10 @@ const DreamWall = ({ user, dreamwall, setDreamWall, handleDelete }) => {
         setOpen={setOpen}
         handleOpen={handleOpen}
         dreamDescription={dreamDescription}
+      />
+      <AppPagination
+        pagination={pagination}
+        handlePageChange={handlePageChange}
       />
     </>
   );

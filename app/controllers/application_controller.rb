@@ -1,9 +1,14 @@
 class ApplicationController < ActionController::API
   include ActionController::Cookies
+
   rescue_from ActiveRecord::RecordInvalid,
               with: :render_unprocessable_entity_response
 
   before_action :authorize
+
+  def created_at
+    attributes['created_at'].strftime('%Y-%m-%d %H:%M')
+  end
 
   private
 

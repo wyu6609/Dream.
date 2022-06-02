@@ -2,7 +2,14 @@ import React from "react";
 import "./Waves.css";
 import Content from "./Content/Content";
 import Box from "@mui/material/Box";
-const Waves = ({ user, dreamwall, setDreamWall, handleDelete }) => {
+const Waves = ({
+  user,
+  dreamwall,
+  setDreamWall,
+  handleDelete,
+  pagination,
+  handlePageChange,
+}) => {
   return (
     <div>
       <div className="area">
@@ -23,6 +30,8 @@ const Waves = ({ user, dreamwall, setDreamWall, handleDelete }) => {
           dreamwall={dreamwall}
           setDreamWall={setDreamWall}
           handleDelete={handleDelete}
+          pagination={pagination}
+          handlePageChange={handlePageChange}
         />
       </div>
     </div>

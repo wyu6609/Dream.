@@ -158,6 +158,7 @@ theme = {
 const drawerWidth = 256;
 
 //axios fetch
+const pageSize = 5;
 
 export default function Paperbase({ handleLogoutClick, user }) {
   const location = useLocation();
@@ -166,6 +167,12 @@ export default function Paperbase({ handleLogoutClick, user }) {
   const [selectedIndex, setSelectedIndex] = React.useState(0);
 
   const [dreamwall, setDreamWall] = React.useState([]);
+
+  const [pagination, setPagination] = React.useState({
+    count: 0,
+    from: 0,
+    to: pageSize,
+  });
 
   React.useEffect(() => {
     switch (location.pathname) {
@@ -190,9 +197,24 @@ export default function Paperbase({ handleLogoutClick, user }) {
 
     axios.get(`/dreams`).then((res) => {
       const dreams = res.data;
-      setDreamWall(dreams.slice(0, 5));
+      setDreamWall(dreams.slice(pagination.from, pagination.to));
+      setPagination({ ...pagination, count: res.data.length });
     });
   }, []);
+
+  React.useEffect(() => {
+    axios.get(`/dreams`).then((res) => {
+      const dreams = res.data;
+      setDreamWall(dreams.slice(pagination.from, pagination.to));
+      setPagination({ ...pagination, count: res.data.length });
+    });
+  }, [pagination.from, pagination.to]);
+
+  const handlePageChange = (event, page) => {
+    const from = (page - 1) * pageSize;
+    const to = (page - 1) * pageSize + pageSize;
+    setPagination({ ...pagination, from: from, to: to });
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -209,7 +231,7 @@ export default function Paperbase({ handleLogoutClick, user }) {
       .post("/dreams", formObj)
       .then(function (res) {
         console.log(dreamwall);
-        setDreamWall([res.data, ...dreamwall]);
+        setDreamWall([res.data, ...dreamwall.slice(0, 4)]);
       })
       .catch(function (error) {
         console.log(error);
@@ -275,6 +297,8 @@ export default function Paperbase({ handleLogoutClick, user }) {
             dreamwall={dreamwall}
             setDreamWall={setDreamWall}
             handleDelete={handleDelete}
+            pagination={pagination}
+            handlePageChange={handlePageChange}
           />
         </Box>
       </Box>

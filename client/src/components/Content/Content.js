@@ -9,10 +9,12 @@ import ModalEx from "../ModalEx";
 import axios from "axios";
 
 export default function Content({
+  pagination,
   user,
   dreamwall,
   setDreamWall,
   handleDelete,
+  handlePageChange,
 }) {
   return (
     <>
@@ -25,6 +27,8 @@ export default function Content({
               dreamwall={dreamwall}
               setDreamWall={setDreamWall}
               handleDelete={handleDelete}
+              pagination={pagination}
+              handlePageChange={handlePageChange}
             />
           }
         />
