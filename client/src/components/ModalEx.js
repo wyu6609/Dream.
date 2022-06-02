@@ -28,7 +28,6 @@ export default function ModalEx({
   user,
 }) {
   const handleClose = () => setOpen(false);
-  console.log(dreamwall);
 
   return (
     <div>

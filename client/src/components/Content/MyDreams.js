@@ -28,6 +28,7 @@ const MyDreams = ({
     .map((dream) => {
       return (
         <Post
+          key={dream.id}
           user={user}
           dream={dream}
           handleOpen={handleOpen}

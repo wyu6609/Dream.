@@ -11,7 +11,6 @@ const DreamWall = ({
   pagination,
   handlePageChange,
 }) => {
-  console.log(user);
   //map dreams to post
 
   // modal state
@@ -24,19 +23,11 @@ const DreamWall = ({
 
     setOpen(true);
   };
-  console.log(dreamwall);
-  // useEffect(() => {
-  //   axios.get(`/dreams`).then((res) => {
-  //     const dreams = res.data;
 
-  //     setDreamWall(dreams.slice(0, 5));
-  //   });
-  // }, []);
-
-  console.log(dreamwall);
   const dreams = dreamwall.map((dream) => {
     return (
       <Post
+        key={dream.id}
         user={user}
         dream={dream}
         handleOpen={handleOpen}
