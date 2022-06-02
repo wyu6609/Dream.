@@ -33,7 +33,6 @@ const MyDreams = ({
           handleOpen={handleOpen}
           setDreamDescription={setDreamDescription}
           handleDelete={handleDelete}
-          setDreamDescription={setDreamDescription}
         />
       );
     });
