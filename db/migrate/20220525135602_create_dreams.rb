@@ -4,7 +4,7 @@ class CreateDreams < ActiveRecord::Migration[6.1]
       t.references :user
       t.string :title
       t.string :description
-      t.string :date
+
       t.timestamps
     end
   end

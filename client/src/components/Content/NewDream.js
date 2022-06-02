@@ -51,7 +51,7 @@ export default function NewDream({
             rows={6}
           />
 
-          <Box sx={{ display: "flex", justifyContent: "space-even" }}>
+          {/* <Box sx={{ display: "flex", justifyContent: "space-even" }}>
             <TextField
               margin="normal"
               required
@@ -68,7 +68,7 @@ export default function NewDream({
               type="date"
               id="date"
             />
-          </Box>
+          </Box> */}
 
           <Button
             type="submit"

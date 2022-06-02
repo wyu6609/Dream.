@@ -24,12 +24,6 @@ puts 'seeding dreams...'
     user_id: User.ids.sample,
     title: Faker::Hipster.sentence(word_count: 3),
     description: Faker::Hipster.sentence(word_count: 7),
-    date:
-      Faker::Date.between_except(
-        from: '2022-09-23',
-        to: '2022-09-25',
-        excepted: '2022-01-24',
-      ),
   )
 end
 puts 'done seeding!'

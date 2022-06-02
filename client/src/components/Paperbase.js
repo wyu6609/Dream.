@@ -223,7 +223,6 @@ export default function Paperbase({ handleLogoutClick, user }) {
       user_id: user.id,
       title: data.get("title"),
       description: data.get("description"),
-      date: `${data.get("time")} ${data.get("date")}`,
     };
     // axios post
 

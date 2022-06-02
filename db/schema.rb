@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(version: 2022_05_25_135602) do
     t.bigint "user_id"
     t.string "title"
     t.string "description"
-    t.string "date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_dreams_on_user_id"
