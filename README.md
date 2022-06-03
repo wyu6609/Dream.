@@ -6,7 +6,7 @@ Log your dreams. See what others are dreaming.
 
 ## Description
 
-Dream Journal allows users to sign up and login. User can see all other user dream entries. User can also enter their own dream and removed their own dream entry.
+Dream Journal allows users to sign up and login. User can see all other user dream entries. User can also enter their own dream and removed their own dream entry. It is mobile responsive as well.
 
 ## DEMO
 
