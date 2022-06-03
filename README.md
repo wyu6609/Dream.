@@ -1,7 +1,8 @@
 # Dream Journal
 
 Log your dreams. See what others are dreaming.
-<a href= "">Checkout deployed website here</a>
+
+<p align="center"><a href= "">Checkout deployed website here</a></p>
 
 ## Description
 
