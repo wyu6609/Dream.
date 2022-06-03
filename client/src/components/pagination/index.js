@@ -8,7 +8,7 @@ export default function AppPagination({ pagination, handlePageChange }) {
       justifyContent="center"
       alignItems="center"
       display="flex"
-      sx={{ margin: "20px 0px" }}
+      sx={{ margin: "-1px 0px" }}
     >
       <Pagination
         count={Math.ceil(pagination.count / pageSize)}
